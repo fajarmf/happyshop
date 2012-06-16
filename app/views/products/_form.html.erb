@@ -1,0 +1,52 @@
+<%= form_for(@product, :html => { :multipart => true }) do |f| %>
+<% if @product.errors.any? %>
+<div id="error_explanation">
+	<h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+	<ul>
+		<% @product.errors.full_messages.each do |msg| %>
+		<li>
+			<%= msg %>
+		</li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
+
+<div class="field">
+	<%= f.label :name %>
+	<br />
+	<%= f.text_field :name %>
+</div>
+<div class="field">
+	<%= f.label :description %>
+	<br />
+	<%= f.text_area :description, rows:4,cols:60 %>
+	<br />
+	Maximum size: 1,024 characters
+</div>
+<div class="field">
+	<%= f.label :price %>
+	<br />
+	<%= f.text_field :price %>
+</div>
+
+<hr>
+<div class="field">
+	<p>
+		<b>Image: Upload/Replace</b>
+	</p>
+	<br />
+	<%= f.file_field :image %>
+</div>
+<% if @product.image %>
+<div>
+	<b>Preview image: Upload/Replace</b>
+	<br />
+	<%= image_tag(@product.image.url(:medium)) %>
+</div>
+<% end %>
+<div class="actions">
+	<%= f.submit %>
+</div>
+<% end %>

@@ -1,0 +1,64 @@
+<% if session['required_resources_present'] %>
+	<h1>Welcome to Happy Shop</h1>
+	
+	<% if not @products or @products.size == 0 %>
+	<p style='color: green'>
+		You must login as a vendor to add products to the marketplace.
+	</p>
+	<% end %>
+	
+	<% if @products %>
+	<% if not user_in_role('customer') %>
+	<p style='color: green'>
+		You must login as a customer to purchase items.
+	</p>
+	<% end %>
+	
+	<table width="100%">
+		<% for product in @products %>
+		<tr>
+			<th align="left"><%= product.name %></th>
+			<td rowspan="3"><img src='<%#= uri_for_download(product, true) %>'/></td>
+		</tr>
+		<tr>
+			<td><%= product.description %></td>
+		</tr>
+		<tr>
+			<% if user_in_role('customer') %>
+			<td> <%= link_to 'Buy for ' + number_to_currency(product.price), "uri_for_single_use_sender(product)" %>
+			<br/>
+			<br/>
+			</td>
+			<% else %>
+			<td>Price: <%= number_to_currency(product.price) %>
+			<br/>
+			<br/>
+			</td>
+			<% end %>
+		</tr>
+		<% end %>
+	</table>
+	<% end %>
+<% else %>
+      <b>Marketplace Administrator User does not exist</b><br/>
+      <p style='color: red'>
+        You cannot administer the marketplace until you have created 'Admin' user for the Marketplace.<br />  
+      
+        <form action='/signup' method='post'>
+          <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+          <input name="role" type="hidden" value="marketeer" />
+          <table>
+            <tr>
+              <td><b>Username</b></td>
+              <td><input type='text' name='username'/></td>
+            </tr>
+            <tr>
+              <td><b>Password</b></td>
+              <td><input type='password' name='password'/></td>
+            </tr>
+            <tr><td colspan='2' align="center"><input type='submit' value='Create Admin User'/></td></tr>
+          </table>
+        </form>      
+      </p>
+
+<% end %>

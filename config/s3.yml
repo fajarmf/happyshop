@@ -1,0 +1,8 @@
+development:
+  bucket: 'happyshopdev'
+  access_key_id: 'AKIAIJVE47LSO6OTRUPQ'
+  secret_access_key: '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'
+production:
+  bucket: 'happyshop'
+  access_key_id: 'AKIAIJVE47LSO6OTRUPQ'
+  secret_access_key: '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'

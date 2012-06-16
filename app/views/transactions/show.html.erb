@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Status:</b>
+  <%= @transaction.status %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%= @transaction.type %>
+</p>
+
+<p>
+  <b>Amount:</b>
+  <%= @transaction.amount %>
+</p>
+
+<p>
+  <b>Buyer user:</b>
+  <%= @transaction.buyer_user_id %>
+</p>
+
+<p>
+  <b>Seller user:</b>
+  <%= @transaction.seller_user_id %>
+</p>
+
+<p>
+  <b>Product:</b>
+  <%= @transaction.product_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_transaction_path(@transaction) %> |
+<%= link_to 'Back', transactions_path %>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Happyshop</title>
+		<%= stylesheet_link_tag    "application", :media => "all" %>
+		<%= javascript_include_tag "application" %>
+		<%= csrf_meta_tags %>
+	</head>
+	<body>
+		<p style="color: red">
+			<%= flash[:error] %>
+		</p>
+		<p style="color: green">
+			<%= flash[:notice] %>
+		</p>
+
+		<p>
+			<% if user_logged_in %>
+			Logged in as <b><%= user_name %></b> |
+			<%= link_to 'Home', root_path %> |
+			<%= link_to "#{user_role.capitalize} Transactions", transactions_path %> |
+			<% if user_in_role('marketeer') %>
+			<%= link_to 'Manage Users', users_path %> |
+			<% elsif user_in_role('vendor') %>
+			<%= link_to 'Manage Products', products_path %> |
+			<% end %>
+			<%= link_to 'Logout', logout_path %>
+			<% else %>
+			<%= link_to 'Login', login_path %> |
+			<%= link_to 'Home', root_path %>
+			<% end %>
+		</p>
+
+		<% if not user_role %>
+		<%= link_to 'Create a Customer Account', signup_path + '?role=customer' %> |
+		<%= link_to 'Create a Vendor Account', signup_path + '?role=vendor' %>
+		<br />
+		<% end %>
+
+		<%= yield %>
+
+	</body>
+</html>

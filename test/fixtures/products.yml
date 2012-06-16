@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  price: 1.5
+  description: MyString
+  vendor_user_id: 1
+  sell: false
+
+two:
+  name: MyString
+  price: 1.5
+  description: MyString
+  vendor_user_id: 1
+  sell: false
