@@ -30,7 +30,7 @@ class ApplicationController < ActionController::Base
       # An action is being invoked before all the required resources have
       # been initialized. Redirect the user back to the landing page, unless
       # the user has initiated an "/init_XYZ" request to create a resource.
-      redirect_to root_url
+ #     redirect_to root_url
     end
   end
     
