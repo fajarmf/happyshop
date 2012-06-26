@@ -23,7 +23,14 @@
 		<tr>
 			<td><%= product.description %></td>
 		</tr>
-		<tr>
+                  <% if product.image %>
+                <tr>
+                    <td>
+                      <%= image_tag(product.image.url(:medium)) %>
+                    </td>
+                </tr>
+                  <% end %>
+                <tr>
 			<% if user_in_role('customer') %>
 			<td> <%= link_to 'Buy for ' + number_to_currency(product.price), "uri_for_single_use_sender(product)" %>
 			<br/>

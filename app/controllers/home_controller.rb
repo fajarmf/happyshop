@@ -9,22 +9,31 @@ class HomeController < ApplicationController
   # Creates a new User in the database based on information
   # from the signup form (eg views/home/signup.html.erb)
   def signup
+    if params['user']
+      params['username'] ||= params['user']['name'] if params['user']['name']
+      params['password'] ||= params['user']['password'] if params['user']['password']
+      params['role'] ||= params['user']['role'] || 'customer' if params['user']['role']
+
+    end
     if params['username'] and params['password'] and params['role']
       # This action has been invoked by the signup form.
       @user = User.create(:role => params['role'],
                           :name => params['username'],
                           :password => params['password'])
+      if @user.new_record?
+        flash[:error] = @user.errors.messages.collect{|k,v| "#{k} #{v.join(k.to_s)}"}
+      else
+        unless session['user_attributes']
+          session['user_attributes'] = @user.attributes
+          session['user_attributes']['id'] = @user.id
 
-      unless session['user_attributes']
-        session['user_attributes'] = @user.attributes
-        session['user_attributes']['id'] = @user.id
-
-        flash[:notice] = "Welcome #{@user.name}, you have signed up as a #{@user.role}"
-        redirect_to(root_url)
+          flash[:notice] = "Welcome #{@user.name}, you have signed up as a #{@user.role}"
+          redirect_to(root_url)
+        end
       end
     else
-    # This action was not invoked by the signup form, redirect
-    # to the form.
+      # This action was not invoked by the signup form, redirect
+      # to the form.
 
       if params['role'] == 'marketeer'
         # We do not allow users to create marketeer (admin) users by
@@ -32,6 +41,8 @@ class HomeController < ApplicationController
         flash[:error] = 'Marketeer users may only be created through the Users management page'
         redirect_to(root_url)
       end
+
+      @user = User.new(:role => params[:role])
     end
   end
 
