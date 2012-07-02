@@ -1,0 +1,7 @@
+<% @products.each do |p| %>
+  <%= p.name %> - <%= p.price %>
+  <%= button_to 'Remove from cart', cart_path(:product_id => p.id), :action => 'delete' %>
+<% end %>
+<div>
+  <p><b>Total price of: <%= @products.map(&:price).sum %></b></p>
+</div>

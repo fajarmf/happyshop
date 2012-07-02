@@ -1,0 +1,27 @@
+<h1>Lokasi penerimaan barang sumbangan</h1>
+
+<table>
+  <tr>
+    <th>Nama</th>
+    <th>Alamat</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @dropboxes.each do |dropbox| %>
+  <tr>
+    <td><%= dropbox.name %></td>
+    <td><%= dropbox.address %></td>
+    <% if user_role == 'marketeer' %>
+      <td><%= link_to 'Show', dropbox %></td>
+      <td><%= link_to 'Edit', edit_dropbox_path(dropbox) %></td>
+      <td><%= link_to 'Destroy', dropbox, confirm: 'Are you sure?', method: :delete %></td>
+    <% end %>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Dropbox', new_dropbox_path if user_role == 'marketeer' %>

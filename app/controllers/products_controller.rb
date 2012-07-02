@@ -1,12 +1,13 @@
 class ProductsController < ApplicationController
 
-  def required_user_role
-    'vendor'
-  end
+#  def required_user_role
+#    'vendor'
+#  end
 
   # GET /products
   # GET /products.json
   def index
+    @user = User.find(session['user_attributes']['id'])
     @products = Product.where(vendor_user_id:session['user_attributes']['id']).all
   end
 

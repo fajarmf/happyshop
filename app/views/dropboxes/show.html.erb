@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @dropbox.name %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= @dropbox.address %>
+</p>
+
+
+<%= link_to 'Edit', edit_dropbox_path(@dropbox) %> |
+<%= link_to 'Back', dropboxes_path %>

@@ -1,0 +1,30 @@
+<%= render 'users/nav', :user => @current_user %>
+<h1>Daftar sumbangan anda</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Pickup date</th>
+    <th>Description</th>
+    <th>Percentage</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @donations.each do |donation| %>
+  <tr>
+    <td><%= donation.user_id %></td>
+    <td><%= donation.pickup_date %></td>
+    <td><%= donation.description %></td>
+    <td><%= donation.percentage %></td>
+    <td><%= link_to 'Show', donation %></td>
+    <td><%= link_to 'Edit', edit_donation_path(donation) %></td>
+    <td><%= link_to 'Destroy', donation, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Donation', new_donation_path %>

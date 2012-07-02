@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   include ApplicationHelper
   protect_from_forgery
 
-  before_filter :lookup_required_resources, :authenticate
+  before_filter :lookup_required_resources, :authenticate, :assign_current_user
 
   # Method to check that all the resources required by the marketplace
   # application are available. Required resources include a marketeer 
@@ -49,8 +49,7 @@ class ApplicationController < ActionController::Base
   def authenticate
     if respond_to? :required_user_role and not user_in_role(required_user_role)
       session['user_attributes'] = nil
-      
-      flash[:redirect_to] = request.env['PATH_INFO']
+      session[:redirect_to] = request.env['PATH_INFO']
       flash[:notice] = "Login as a #{required_user_role}"
       redirect_to(login_url)
     end
@@ -61,7 +60,10 @@ class ApplicationController < ActionController::Base
   # the specified role, false otherwise.
   def user_in_role(role)
     attrs = session['user_attributes']
-    attrs && attrs['role'] == role
+    attrs && attrs['role'].split(',').include?(role)
   end
 
+  def assign_current_user
+    @current_user = User.find(session['user_attributes']['id']) if session['user_attributes']
+  end
 end

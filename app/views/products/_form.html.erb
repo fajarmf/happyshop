@@ -30,11 +30,6 @@
 	<br />
 	<%= f.text_field :price %>
 </div>
-<div class="field">
-  <%= f.label :sell %>
-  <br/>
-  <%= f.check_box :sell %>
-</div>
 <hr>
 <div class="field">
 	<p>
@@ -43,13 +38,24 @@
 	<br />
 	<%= f.file_field :image %>
 </div>
-<% if @product.image %>
+<% if @product.image.file? %>
 <div>
 	<b>Preview image: Upload/Replace</b>
 	<br />
 	<%= image_tag(@product.image.url(:medium)) %>
 </div>
 <% end %>
+<hr>
+<div class="field">
+  <%= f.label 'Bagian yang disumbangkan' %>
+  <br/>
+  <%= select 'donation', 'percentage', [['50%',50],['75%',75],['100%', 100]] %>
+</div>
+<div class="field">
+  <%= f.label 'Tanggal penjemputan' %>
+  <br/>
+  <%= text_field 'donation', 'date', :placeholder => 'Tanggal penjemputan', :class => 'datepicker' %>
+</div>
 <div class="actions">
 	<%= f.submit %>
 </div>

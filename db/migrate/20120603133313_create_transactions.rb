@@ -5,7 +5,6 @@ class CreateTransactions < ActiveRecord::Migration
       t.integer :type
       t.float :amount
       t.integer :buyer_user_id
-      t.integer :seller_user_id
       t.integer :product_id
 
       t.timestamps

@@ -3,7 +3,8 @@ class HomeController < ApplicationController
   # available for sale, namely those products which have the attribute
   # :sell set to true.
   def index
-    @products = Product.where(:sell => true).all
+    render 'index2',layout: nil
+    #    @products = Product.where(:sell => true).all
   end
 
   # Creates a new User in the database based on information
@@ -28,7 +29,11 @@ class HomeController < ApplicationController
           session['user_attributes']['id'] = @user.id
 
           flash[:notice] = "Welcome #{@user.name}, you have signed up as a #{@user.role}"
-          redirect_to(root_url)
+          if session[:redirect_to]
+            redirect_to session[:redirect_to]
+          else
+            redirect_to(root_url)
+          end
         end
       end
     else

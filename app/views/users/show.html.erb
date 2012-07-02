@@ -1,5 +1,10 @@
 <p id="notice"><%= notice %></p>
 
+<%= render 'nav', :user => @user %>
+<% if user_in_role('marketeer') %>
+  <%= link_to 'Manage Users', users_path %>
+<% end %>
+
 <p>
   <b>Name:</b>
   <%= @user.name %>

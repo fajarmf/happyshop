@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
 
-  def required_user_role
-    'marketeer'
-  end  
+ # def required_user_role
+ #   'marketeer'
+ # end  
 
   # GET /users
   # GET /users.json

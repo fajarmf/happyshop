@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @donation.user_id %>
+</p>
+
+<p>
+  <b>Pickup date:</b>
+  <%= @donation.pickup_date %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @donation.description %>
+</p>
+
+<p>
+  <b>Percentage:</b>
+  <%= @donation.percentage %>
+</p>
+
+
+<%= link_to 'Edit', edit_donation_path(@donation) %> |
+<%= link_to 'Back', user_donations_path %>

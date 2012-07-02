@@ -1,51 +1,70 @@
+<script type="text/javascript">
+  $(document).ready(function() {
+      $('#mainBanner ul').cycle({
+          fx: 'fade' // choose your transition type, ex: fade, scrollUp, shuffle, etc...
+      });
+  });
+</script>
+
 <% if session['required_resources_present'] %>
-	<h1>Welcome to Happy Shop</h1>
-	
-	<% if not @products or @products.size == 0 %>
-	<p style='color: green'>
-		You must login as a vendor to add products to the marketplace.
-	</p>
-	<% end %>
-	
-	<% if @products %>
-	<% if not user_in_role('customer') %>
-	<p style='color: green'>
-		You must login as a customer to purchase items.
-	</p>
-	<% end %>
-	
-	<table width="100%">
-		<% for product in @products %>
-		<tr>
-			<th align="left"><%= product.name %></th>
-			<td rowspan="3"><img src='<%#= uri_for_download(product, true) %>'/></td>
-		</tr>
-		<tr>
-			<td><%= product.description %></td>
-		</tr>
+  <h1>Pasar Amal - jual beli barang untuk amal</h1>
+
+  <div id='mainBanner' style='margin: 10px 0; display: block; height: 200px;'>
+    <ul>
+      <li>
+        <span>Pasar Amal adalah tempat kita menjual barang dengan tujuan amal.</span>
+      </li>
+      <li>
+        <span>Foto dari partner2: GNOTA, Dompet Duafa, dll</span>
+      </li>
+      <li>
+        <span>Collage dari foto event kita</span>
+      </li>
+    </ul>
+  </div>
+  <nav>
+
+    <%= "Saya ingin mendonasikan barang" %>
+    <ul>
+      <li>
+        <%= link_to "Dropbox", dropboxes_path %>
+      </li>
+      <li>
+        <%= link_to "Pick up", new_donation_path %>
+      </li>
+    </ul>
+  </nav>
+
+  <div id='catalogs'>
+    <section>
+      <header>
+      <div class='border-bottom'>
+        <h2>Daftar barang di pasar:</h2>
+      </div>
+        </header>
+    </section>
+        <% if @products %>
+
+          <ul>
+            <% for product in @products %>
+              <li id='<%= product.id %>' class="itemBox left">
+                <a href='<%= product_path(product)%>' title="<%= product.name %>">
                   <% if product.image %>
-                <tr>
-                    <td>
-                      <%= image_tag(product.image.url(:medium)) %>
-                    </td>
-                </tr>
+                    <span class='img-wrapper'>
+                    <%= image_tag(product.image.url(:medium), :width=> 135, :height => 194, :style => 'display: inline;') %>
+                    </span>
                   <% end %>
-                <tr>
-			<% if user_in_role('customer') %>
-			<td> <%= link_to 'Buy for ' + number_to_currency(product.price), "uri_for_single_use_sender(product)" %>
-			<br/>
-			<br/>
-			</td>
-			<% else %>
-			<td>Price: <%= number_to_currency(product.price) %>
-			<br/>
-			<br/>
-			</td>
-			<% end %>
-		</tr>
-		<% end %>
-	</table>
-	<% end %>
+                  <span class='strong'><%= product.name %></span>
+                  <span class="itm-priceBox strong"><span class="itm-price ">RP&nbsp;<%= product.price%></span></span>
+                </a>
+              </li>
+            <% end %>
+          </ul>
+        <% end %>
+  </div>
+
+
+
 <% else %>
       <b>Marketplace Administrator User does not exist</b><br/>
       <p style='color: red'>

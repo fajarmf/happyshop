@@ -1,0 +1,27 @@
+<h1>Daftar partner distribusi sumbangan</h1>
+
+<table>
+  <tr>
+    <th>Nama</th>
+    <th>Website</th>
+    <th>Keterangan</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @partners.each do |partner| %>
+  <tr>
+    <td><%= partner.name %></td>
+    <td><%= partner.website %></td>
+    <td><%= partner.description %></td>
+    <td><%= link_to 'Show', partner if user_role == 'marketeer' %></td>
+    <td><%= link_to 'Edit', edit_partner_path(partner) if user_role == 'marketeer' %></td>
+    <td><%= link_to 'Destroy', partner, confirm: 'Are you sure?', method: :delete if user_role == 'marketeer'  %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Partner', new_partner_path if user_role == 'marketeer' %>

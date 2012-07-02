@@ -1,0 +1,6 @@
+<nav>
+  <%= link_to "General", user_path(user) %> | 
+  <%= link_to "Donations", user_donations_path(user) %> | 
+  <%= link_to 'Products', user_products_path(user) %> |
+  <%= link_to "Orders", user_transactions_path(user) %>
+</nav>
