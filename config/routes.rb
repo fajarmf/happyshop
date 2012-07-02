@@ -1,11 +1,18 @@
 Happyshop::Application.routes.draw do
 
+  resources :donations, :only => :new
+
   root :to => 'home#index'
-  resources :transactions
-
+  resource :cart, :only => [:show, :destroy, :create]
   resources :products
-
-  resources :users
+  resources :dropboxes
+  resources :partners
+  resources :users do
+    resources :transactions
+    resources :donations
+    resources :products, :only => :index
+    resources :orders
+  end
 
   match 'login' => 'home#login', :as => :login
   match 'logout' => 'home#logout', :as => :logout

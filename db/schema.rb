@@ -11,7 +11,38 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120610222248) do
+ActiveRecord::Schema.define(:version => 20120628090611) do
+
+  create_table "donations", :force => true do |t|
+    t.integer  "user_id"
+    t.date     "pickup_date"
+    t.text     "description"
+    t.integer  "percentage"
+    t.text     "address"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+  end
+
+  add_index "donations", ["user_id"], :name => "index_donations_on_user_id"
+
+  create_table "dropboxes", :force => true do |t|
+    t.string   "name"
+    t.string   "address"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "partners", :force => true do |t|
+    t.string   "name"
+    t.string   "website"
+    t.string   "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "products", :force => true do |t|
     t.string   "name"

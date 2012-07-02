@@ -1,56 +1,332 @@
 body {
-  background-color: #fff;
+  font-size: 12px;
+  font-family: Helvetica,Arial,sans-serif;
+  background: #E7E8EB;
+  min-height: 100%;
+  overflow-y: hidden;
+  margin: 0;
+  line-height: 1.333;
+  display: block;
+}
+html {
+  font-size: 100%;
+}
+body, button, input, select, textarea {
+  font-family: sans-serif;
+  color: #222;
+}
+
+#page {
+  width: 960px;
+  margin: 0 auto;
+  position: relative;
+  min-height: 100%;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section {
+  display: block;
+}
+
+.front .region-above-content {
+  position: relative;
+}
+#block-menu-block-undeez-ui-2 {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 11px;
+  font-weight: bold;
+  z-index: 97;
+}
+#block-menu-block-undeez-ui-2 ul {
+  margin: 0;
+}
+ul.menu {
+  border: none;
+  list-style: none;
+  text-align: left;
+}
+#block-menu-block-undeez-ui-2 ul li.active, #block-menu-block-undeez-ui-2 ul li:hover {
+  background-color: #007F7F;
+}
+#block-menu-block-undeez-ui-2 ul li {
+  display: inline-block;
+  vertical-align: top;
+  background-color: #A6A6A6;
+  margin: 0 0 0 5px;
+  padding: 0;
+}
+ul li.leaf {
+  list-style-image: url(misc/menu-leaf.png);
+  list-style-type: square;
+}
+#block-menu-block-undeez-ui-2 ul li.active a, #block-menu-block-undeez-ui-2 ul li:hover a {
+  color: white;
+  background: #007F7F;
+}
+#block-menu-block-undeez-ui-2 ul li a {
   color: #333;
-  font-family: verdana, arial, helvetica, sans-serif;
+  text-decoration: none;
+  display: block;
+  padding: 3px 6px;
+  min-width: 60px;
+  height: 25px;
+  text-align: center;
+  line-height: 100%;
+  padding-top: 3px;
+  background: #CCC;
+  background: rgba(231, 231, 231, 0.7);
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  -ms-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+li a.active {
+  color: black;
+}
+a, a:link, a:visited, a:active {
+  color: #007F7F;
+}
+#block-views-gallery-block {
+  position: relative;
+  background-color: black;
+  height: 340px;
+  max-height: 720px;
+  overflow: hidden;
+}
+#views_slideshow_cycle_teaser_section_gallery-block {
+  position: relative;
+  width: 960px;
+  height: 540px;
+}
+.catalog-nav {
+  position: relative;
+}
+ul.catalog-navigation {
+  overflow: hidden;
+  position: relative;
+  margin: 15px 0;
+}
+.catalog-nav ul {
+  padding: 0;
+  letter-spacing: -4px;
+  text-indent: -9999px;
+}
+nav ul, nav ol {
+  list-style: none;
+  list-style-image: none;
+  margin: 0;
+  padding: 0;
+}
+ul, ol {
+  margin: 1em 0;
+}
+ul.catalog-navigation li.gender.donate {
+  float: right;
+  padding: 0 117px 0 0;
+}
+ul.catalog-navigation li.gender {
+  float: left;
+  text-indent: -9999px;
+  width: 355px;
+  height: 195px;
+  padding-left: 117px;
+  cursor: pointer;
+  background: #C7C7C7;
+}
+ul.catalog-navigation li, ul.products li {
+  list-style: none;
+}
+ul.catalog-navigation li.gender.donate .img-holder {
+  background: url(give.png) no-repeat left 0 #C7C7C7;
+  float: left;
+}
+ul.catalog-navigation li.gender .img-holder {
+  width: 472px;
+  height: 195px;
+}
+.ir {
+  display: block;
+  border: 0;
+  text-indent: -999em;
+  overflow: hidden;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  text-align: left;
+  direction: ltr;
+}
+ul.catalog-navigation li.gender div.label {
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+  width: 117px;
+  height: 117px;
+  background: url(btn-activity.png) no-repeat 0 0 transparent;
+}
+ul.products.items-7, ul.products.items-8 {
+  width: 566px;
+}
+ul.catalog-navigation ul, ul.products {
+  display: none;
+}
+ul.products {
+  width: 426px;
+  padding: 9px 27px;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+}
+.catalog-nav ul {
+  padding: 0;
+  letter-spacing: -4px;
+  text-indent: -9999px;
+}
+ul.products.donate li.pickup {
+  text-indent: -9999px;
+  background: url(pickup-order.png);
+  background-size: 227px;
+  cursor: pointer;
+}
+ul.products.donate li {
+  background-position: 0 0;
+}
+ul.products li {
+  float: left;
+  width: 227px;
+  height: 176px;
+  margin: 0 28px;
+  position: relative;
+  z-index: 0;
+  cursor: pointer;
+}
+ul.products.donate li.drop {
+  text-indent: -9999px;
+  background: url(self-carry.jpeg);
+  cursor: pointer;
+}
+ul.catalog-navigation li.gender.buy .img-holder {
+  background: url(shopping.jpeg) no-repeat right 0 #C7C7C7;
+  float: right;
+}
+ul.catalog-navigation li.gender div.label.buy {
+  right: auto;
+  left: 0;
+  background-position: -130px 0px;
+}
+.front .region-content-bottom {
+  overflow: hidden;
+  padding-bottom: 70px;
+  border-top: 1px solid #BBB;
+  margin-top: 15px;
+}
+.front .region-content-bottom .block, .front .region-content-promotions .node-promotion-boxes {
+  float: left;
+}
+#boxes-box-footer_message .boxes-box-content {
+  line-height: 24px;
+  font-size: 16px;
+  color: #333;
+  padding-top: 6px;
+  width: 418px;
+  white-space: nowrap;
+}
+#boxes-box-footer_message .boxes-box-content span {
+  margin-right: 4px;
+  padding-right: 8px;
+  border-right: 1px solid #999;
+}
+#boxes-box-footer_message .boxes-box-content a {
+  color: #333;
+  text-decoration: none;
+}
+#boxes-box-footer_message .boxes-box-content span.credit {
+  border-right: 1px solid #AAA;
+}
+#boxes-box-footer_message .boxes-box-content span.credit a {
+  font-size: 12px;
+  color: #999;
+  text-decoration: none;
+}
+#boxes-box-footer_message .boxes-box-content span.last {
+  border-right: none;
+}
+#block-boxes-social-links {
+  float: right;
+  font-weight: bold;
   font-size: 13px;
-  line-height: 18px; }
+  line-height: 24px;
+  letter-spacing: -1px;
+}
+#block-boxes-social-links .boxes-box-content a.fb {
+  background-position: 0 0;
+  margin-left: 4px;
+}
+#block-boxes-social-links .boxes-box-content a {
+  display: inline-block;
+  height: 22px;
+  width: 22px;
+  margin: 6px 0 0 -1px;
+  background: url(icons-social.png) no-repeat;
+}
+#block-boxes-social-links .boxes-box-content a.tw {
+  background-position: -30px 0;
+}
+#block-boxes-social-links .boxes-box-content a.yt {
+  background-position: -60px 0;
+}
+#block-boxes-social-links .boxes-box-content a.go {
+  background-position: -90px 0;
+}
+.clearfix {
+  zoom: 1;
+}
 
-p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 18px; }
+.clearfix {
+  zoom: 1;
+}
+view_slideshow_pager_field {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  z-index: 9;
+  height: 0;
+  bottom: 26px;
+}
+.views-slideshow-pager-field-item, #widget_pager_bottom_gallery-block a {
+  display: inline-block;
+  background: url(sprite-gallery.png) no-repeat -240px -10px;
+  width: 16px;
+  height: 16px;
+  margin-right: 3px;
+  text-indent: -9999px;
+  cursor: pointer;
+}
+#widget_pager_bottom_gallery-block a:hover, #widget_pager_bottom_gallery-block a.activeSlide, .views-slideshow-pager-field-item.active, .views-slideshow-pager-field-item:hover {
+  background-position: -241px -46px;
+}
 
-pre {
-  background-color: #eee;
-  padding: 10px;
-  font-size: 11px; }
-
-a {
-  color: #000;
-  &:visited {
-    color: #666; }
-  &:hover {
-    color: #fff;
-    background-color: #000; } }
-
-div {
-  &.field, &.actions {
-    margin-bottom: 10px; } }
-
-#notice {
-  color: green; }
-
-.field_with_errors {
-  padding: 2px;
-  background-color: red;
-  display: table; }
-
-#error_explanation {
-  width: 450px;
-  border: 2px solid red;
-  padding: 7px;
-  padding-bottom: 0;
-  margin-bottom: 20px;
-  background-color: #f0f0f0;
-  h2 {
-    text-align: left;
-    font-weight: bold;
-    padding: 5px 5px 5px 15px;
-    font-size: 12px;
-    margin: -7px;
-    margin-bottom: 0px;
-    background-color: #c00;
-    color: #fff; }
-  ul li {
-    font-size: 12px;
-    list-style: square; } }
+#widget_pager_bottom_gallery-block a:hover, #widget_pager_bottom_gallery-block a.activeSlide, .views-slideshow-pager-field-item.active, .views-slideshow-pager-field-item:hover {
+  background-position: -241px -46px;
+}
+.views-slideshow-controls-text .views-slideshow-controls-text-previous {
+  background-position: 0 0;
+  left: 10px;
+}
+.views-slideshow-controls-text > span {
+  width: 51px;
+  height: 35px;
+  text-indent: -9999px;
+  background: url(sprite-gallery.png);
+  position: absolute;
+  bottom: 10px;
+  z-index: 9;
+}
+.views-slideshow-controls-text .views-slideshow-controls-text-next {
+  background-position: -60px 0;
+  left: 70px;
+}
+.views-slideshow-controls-text-pause {
+  display: none;
+}

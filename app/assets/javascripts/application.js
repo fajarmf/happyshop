@@ -13,3 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+//
+
+  $(function() {
+    $( ".datepicker" ).datepicker($.datepicker.regional['id']);
+  });
