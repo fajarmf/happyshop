@@ -3,7 +3,7 @@ class HomeController < ApplicationController
   # available for sale, namely those products which have the attribute
   # :sell set to true.
   def index
-    render 'index2',layout: nil
+    render 'landing',layout: nil
     #    @products = Product.where(:sell => true).all
   end
 

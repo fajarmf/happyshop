@@ -7,119 +7,27 @@
 		<%= csrf_meta_tags %>
 	</head>
 
-        <body class='front'>
+        <body class='not-front'>
+          <div class='region region-navbar'>
+            <div class='inner-navbar'>
+              <%= link_to "Home", root_path, id:'logo', title:'Home', rel:'home', class:'ir' %>
+              <!-- navigation block -->
+              <%= render :partial => 'layouts/navigation_block' %>
+            </div>
+          </div>
 
-        <div id='page'>
+        <div id='page' class='clearfix'>
+          <header class='page-header clearfix' role='banner'></header>
+          <h1 id='page-title'> <%= yield :'page-header' %> </h1>
 
           <section id="main-content" role="main">
-
-          <div class='region region-above-content'>
-
-            <!-- navigation block -->
-<nav id="block-menu-block-undeez-ui-2" class="block block-menu-block block-odd">
-<div class="menu-block-wrapper menu-block-undeez_ui-2 menu-name-main-menu parent-mlid-0 menu-level-1">
-  <ul class="menu clearfix">
-    <li class="first leaf active"><%= link_to "Beranda", root_path, :class=>'active' %></li>
-    <li class="leaf"><a href="/profile">Your<br>Account</a></li>
-    <li class="leaf"><a href="/partners">Partners</a></li>
-    <li class="leaf"><a href="/dropboxes" title="">Dropbox<br>Events</a></li>
-    <li class="last leaf"><a href="/how" title="">How</a></li>
-  </ul>
-</div>
-</nav>
-
-	<section id="block-views-gallery-block" class="block block-views block-even">
-		<div><div class="view-content"><div class="skin-default"><div>
-						<div id="views_slideshow_cycle_teaser_section_gallery-block">
-							<div>
-								<div>
-									<a href="/how" class="gallery-image">
-										<img typeof="foaf:Image" src="assets/text.jpeg" alt="PasarAmal.com"></a>    
-		</div>
-</div>
-<div>
-	<div>
-	  <a href="/partners" class="gallery-image">
-		  <img typeof="foaf:Image" src="assets/gnota.jpeg" alt="partners">
-	  </a>    
-  </div>
-</div>
-<div>
-	<div>
-	  <a href="/dropboxes" class="gallery-image">
-		  <img typeof="foaf:Image" src="assets/dompet.jpeg" alt="dropboxes">
-	  </a>    
-  </div>
-</div>
-</div>
-</div>
-      <div class="views-slideshow-controls-bottom clearfix">
-      <div id="widget_pager_bottom_gallery-block" class="views_slideshow_pager_field">
-</div>
-<div class="views-slideshow-controls-text">
-  <span id="views_slideshow_controls_text_previous_gallery-block" class="views-slideshow-controls-text-previous"><a href="#">Previous</a></span>
-  <span id="views_slideshow_controls_text_pause_gallery-block" class="views-slideshow-controls-text-pause"><a href="#">Resume</a></span>
-  <span id="views_slideshow_controls_text_next_gallery-block" class="views-slideshow-controls-text-next"><a href="#">Next</a></span>
-</div>
-    </div>
-  </div>
-  
-    </div>
-</div> 
-</section>
-
-
-
-<nav id="block-boxes-catalog-nav" class="catalog-nav block block-boxes block-boxes-simple block-odd">
-
-    <ul class="catalog-navigation">
-    <li class="gender donate" hash="#donate" style="width: 355px; ">
-      <div class="img-holder ir">Donate</div>
-      <div class="label">Donate</div>
-      <ul class="products donate items-8">
-	      <li title="arrange pickup" class="product pickup" hash="#arrangepickup">arrange pickup</li>
-	      <li title="personal drop" class="product drop" hash="#personaldrop">come in person to our dropboxes</li>
-      </ul>
-    </li>
-    <li class="gender buy jquery-once-1-processed" hash="#catalog" style="width: 355px; ">
-      <div class="img-holder ir">Catalog</div>
-      <div class="label buy">Catalog</div>
-      <ul class="products"></ul>
-    </li>
-  </ul>
-
-  </nav>
-
-
-
+          <div class='region region-content'>
+            <%= yield %>
           </div>
-            <%= render 'layouts/footer' %>
           </section>
-                   
-          <!--
-          <p style="color: red">
-			<%= flash[:error] %>
-		  </p>
-		  <p style="color: green">
-			<%= flash[:notice] %>
-		  </p>
-                  <header>
-                    <div style="float:left">
-		      <%= link_to 'Home', root_path %> |
-                      <%= link_to "Partners", partners_path %> | 
-                      <%= link_to "Dropbox locations", dropboxes_path %>
-                    </div>
-                    <div style="float:right">
-                       <%= link_to 'Shopping Cart', cart_path %> | 
-		      <% if user_logged_in %>
-                        Logged in as <b><%= link_to user_name, user_path(user_id) %></b> | <%= link_to 'Logout', logout_path %>
-		      <% else %>
-			<%= link_to 'Login', login_path %>
-                      <% end %>
-                    </div>
-                    </header>
-                    -->
-                  <%# yield %>
+          <%= render 'layouts/footer2' %>
+        </div>
+        </section>
                 </div>
 	</body>
 </html>

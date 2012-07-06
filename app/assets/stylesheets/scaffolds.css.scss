@@ -8,6 +8,38 @@ body {
   line-height: 1.333;
   display: block;
 }
+body.not-front {
+  background: white;
+}
+.inner-navbar {
+  width: 960px;
+  margin: 0 auto;
+  position: relative;
+}
+.not-front a#logo {
+  clear: both;
+  display: block;
+  height: 82px;
+  width: 200px;
+  background: url(/assets/logo-inner.png) no-repeat center center transparent;
+}
+.region-navbar {
+  background: #F8F8F8;
+  border-bottom: 1px solid #EBEBEB;
+  min-height: 82px;
+}
+.region-navbar a {
+  text-decoration: none;
+}
+body.not-front .region-footer {
+  float: left;
+  border-top: 1px solid #A3A2A7;
+  margin: 70px 0;
+  width: 100%;
+}
+body.not-front .region-footer .block {
+  float: left;
+}
 html {
   font-size: 100%;
 }
@@ -282,7 +314,16 @@ ul.catalog-navigation li.gender div.label.buy {
 .clearfix {
   zoom: 1;
 }
-
+body.no-title h1#page-title {
+  display: none;
+}
+h1#page-title {
+  font-weight: normal;
+  font-size: 48px;
+  letter-spacing: -2px;
+  margin-top: 50px;
+  margin-bottom: 15px;
+}
 .clearfix {
   zoom: 1;
 }

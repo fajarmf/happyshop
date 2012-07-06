@@ -16,17 +16,7 @@
           <div class='region region-above-content'>
 
             <!-- navigation block -->
-<nav id="block-menu-block-undeez-ui-2" class="block block-menu-block block-odd">
-<div class="menu-block-wrapper menu-block-undeez_ui-2 menu-name-main-menu parent-mlid-0 menu-level-1">
-  <ul class="menu clearfix">
-    <li class="first leaf active"><%= link_to "Beranda", root_path, :class=>'active' %></li>
-    <li class="leaf"><a href="/profile">Your<br>Account</a></li>
-    <li class="leaf"><a href="/partners">Partners</a></li>
-    <li class="leaf"><a href="/dropboxes" title="">Dropbox<br>Events</a></li>
-    <li class="last leaf"><a href="/how" title="">How</a></li>
-  </ul>
-</div>
-</nav>
+            <%= render :partial => 'layouts/navigation_block' %>
 
 	<section id="block-views-gallery-block" class="block block-views block-even">
 		<div><div class="view-content"><div class="skin-default"><div>
