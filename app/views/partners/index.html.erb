@@ -1,27 +1,17 @@
-<h1>Daftar partner distribusi sumbangan</h1>
+<% content_for :'page-header' do %>
+Daftar partner distribusi sumbangan
+<% end %>
 
-<table>
-  <tr>
-    <th>Nama</th>
-    <th>Website</th>
-    <th>Keterangan</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
+<ul>
 <% @partners.each do |partner| %>
-  <tr>
-    <td><%= partner.name %></td>
-    <td><%= partner.website %></td>
-    <td><%= partner.description %></td>
+  <li>
+    <h1><%= partner.name %></h1>
+    <p><%= partner.website %></p>
+    <p><%= partner.description %></p>
     <td><%= link_to 'Show', partner if user_role == 'marketeer' %></td>
     <td><%= link_to 'Edit', edit_partner_path(partner) if user_role == 'marketeer' %></td>
     <td><%= link_to 'Destroy', partner, confirm: 'Are you sure?', method: :delete if user_role == 'marketeer'  %></td>
-  </tr>
+  </li>
 <% end %>
-</table>
-
-<br />
-
+</ul>
 <%= link_to 'New Partner', new_partner_path if user_role == 'marketeer' %>

@@ -1,4 +1,5 @@
-<%= form_for([User.find(user_id),@donation]) do |f| %>
+<% path = user_id ? [User.find(user_id), @donation] : @donation %>
+<%= form_for path  do |f| %>
   <% if @donation.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@donation.errors.count, "error") %> prohibited this donation from being saved:</h2>
@@ -10,7 +11,17 @@
       </ul>
     </div>
   <% end %>
-
+  <% unless user_id %>
+  <div class="field">
+    <%= f.label 'Nama' %><br />
+    <%= text_field_tag :name %>
+  </div>
+  <div class="field">
+    <%= f.label 'Nomor Telepon' %><br />
+    <%= text_field_tag :phonenum%>
+  </div>
+  
+  <% end %>
   <div class="field">
     <%= f.label 'Tanggal penjemputan' %><br />
     <%= f.text_field :pickup_date, :class=>'datepicker'%>

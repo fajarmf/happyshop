@@ -59,6 +59,9 @@ class UsersController < ApplicationController
     end
   end
 
+  def profile
+  end
+
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy

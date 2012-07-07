@@ -1,33 +1,32 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Pasar Amal</title>
-		<%= stylesheet_link_tag    "application", :media => "all" %>
-		<%= javascript_include_tag "application" %>
-		<%= csrf_meta_tags %>
-	</head>
+  <head>
+    <title>Pasar Amal</title>
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body class='not-front'>
+    <div class='region region-navbar'>
+      <div class='inner-navbar'>
+        <%= link_to "Home", root_path, id:'logo', title:'Home', rel:'home', class:'ir' %>
 
-        <body class='not-front'>
-          <div class='region region-navbar'>
-            <div class='inner-navbar'>
-              <%= link_to "Home", root_path, id:'logo', title:'Home', rel:'home', class:'ir' %>
-              <!-- navigation block -->
-              <%= render :partial => 'layouts/navigation_block' %>
-            </div>
-          </div>
+        <!-- navigation block -->
+        <%= render :partial => 'layouts/navigation_block' %>
+      </div>
+    </div>
 
-        <div id='page' class='clearfix'>
-          <header class='page-header clearfix' role='banner'></header>
-          <h1 id='page-title'> <%= yield :'page-header' %> </h1>
+    <div id='page' class='clearfix'>
+      <header class='page-header clearfix' role='banner'></header>
+      <h2 id='page-title'> <%= yield :'page-header' %> </h2>
 
-          <section id="main-content" role="main">
-          <div class='region region-content'>
-            <%= yield %>
-          </div>
-          </section>
-          <%= render 'layouts/footer2' %>
-        </div>
-        </section>
-                </div>
-	</body>
+      <section id="main-content" role="main">
+      <div class='region region-content'>
+        <%= yield %>
+      </div>
+      </section>
+
+      <%= render 'layouts/footer2' %>
+    </div>
+  </body>
 </html>

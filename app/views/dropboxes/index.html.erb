@@ -1,27 +1,19 @@
-<h1>Lokasi penerimaan barang sumbangan</h1>
+<% content_for :'page-header' do %>
+Lokasi penerimaan barang sumbangan
+<% end %>
 
-<table>
-  <tr>
-    <th>Nama</th>
-    <th>Alamat</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
+<ul>
 <% @dropboxes.each do |dropbox| %>
-  <tr>
-    <td><%= dropbox.name %></td>
-    <td><%= dropbox.address %></td>
+  <li>
+    <h1><%= dropbox.name %></h1>
+    <p><%= dropbox.address %></p>
     <% if user_role == 'marketeer' %>
       <td><%= link_to 'Show', dropbox %></td>
       <td><%= link_to 'Edit', edit_dropbox_path(dropbox) %></td>
       <td><%= link_to 'Destroy', dropbox, confirm: 'Are you sure?', method: :delete %></td>
     <% end %>
-  </tr>
+  </li>
 <% end %>
-</table>
-
-<br />
+</ul>
 
 <%= link_to 'New Dropbox', new_dropbox_path if user_role == 'marketeer' %>

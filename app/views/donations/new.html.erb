@@ -1,5 +1,7 @@
-<h1>Formulir sumbangan</h1>
+<% content_for :'page-header' do %>
+Formulir sumbangan
+<% end %>
 
 <%= render 'form' %>
 
-<%= link_to 'Back', user_donations_path(user_id) %>
+<%= link_to 'Back', user_id ? user_donations_path(user_id): root_path %>

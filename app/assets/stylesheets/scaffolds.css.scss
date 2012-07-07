@@ -21,7 +21,8 @@ body.not-front {
   display: block;
   height: 82px;
   width: 200px;
-  background: url(/assets/logo-inner.png) no-repeat center center transparent;
+ /* background: url(/assets/logo-inner.png) no-repeat center center transparent;*/
+  background: url(/assets/logo-carnival.png) no-repeat center center transparent;
 }
 .region-navbar {
   background: #F8F8F8;
@@ -80,6 +81,10 @@ ul.menu {
 }
 #block-menu-block-undeez-ui-2 ul li.active, #block-menu-block-undeez-ui-2 ul li:hover {
   background-color: #007F7F;
+}
+#block-menu-block-undeez-ui-2 ul li:hover a {
+  padding-top: 10px;
+  height: 40px;
 }
 #block-menu-block-undeez-ui-2 ul li {
   display: inline-block;
@@ -370,4 +375,57 @@ view_slideshow_pager_field {
 }
 .views-slideshow-controls-text-pause {
   display: none;
+}
+.views-slideshow-pager-field-item, #slideshow_pager a {
+  display: inline-block;
+  background: url(sprite-gallery.png) no-repeat -240px -10px;
+  width: 16px;
+  height: 16px;
+  margin-right: 3px;
+  text-indent: -9999px;
+  cursor: pointer;
+}
+#slideshow_pager a:hover, #slideshow_pager a.activeSlide, .views-slideshow-pager-field-item.active, .views-slideshow-pager-field-item:hover {
+  background-position: -241px -46px;
+}
+.views_slideshow_pager_field {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  z-index: 9;
+  height: 0;
+  bottom: 26px;
+}
+ul.products.donate li:hover span {
+  background-color: #007F7F;
+  color: white;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  text-align: center;
+  vertical-align: middle;
+  padding: 20px 0;
+}
+ul.products.donate li:hover {
+  text-indent: 0;
+  letter-spacing: 0;
+}
+ul#product-catalog li {
+  list-style: none;
+  float: left;
+  margin: 10px;
+  width: 150px;
+  position: relative;
+}
+.img-wrapper {
+  float: left;
+  width: 150px;
+  height: 150px;
+  background-color: #D8D8D8;
+}
+.product-image {
+  max-width: 135px;
+  max-height: 150px;
+  display: block;
+  margin: auto;
 }

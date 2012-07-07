@@ -1,0 +1,20 @@
+<% content_for :'page-header' do %>
+Daftar catalog
+<% end %>
+<% if @products %>
+  <ul id='product-catalog'>
+    <% for product in @products %>
+      <li id='<%= product.id %>' class="itemBox left">
+      <a href='<%= catalog_path(product)%>' title="<%= product.name %>">
+        <% if product.image %>
+          <span class='img-wrapper'>
+            <%= image_tag(product.image.url(:medium), :class=>'product-image') %>
+          </span>
+        <% end %>
+        <span class='strong'><%= product.name %></span>
+        <span class="itm-priceBox strong"><span class="itm-price ">RP&nbsp;<%= product.price%></span></span>
+      </a>
+      </li>
+    <% end %>
+  </ul>
+<% end %>

@@ -7,6 +7,9 @@ class HomeController < ApplicationController
     #    @products = Product.where(:sell => true).all
   end
 
+  def how
+  end
+
   # Creates a new User in the database based on information
   # from the signup form (eg views/home/signup.html.erb)
   def signup

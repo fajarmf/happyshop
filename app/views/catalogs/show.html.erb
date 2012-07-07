@@ -1,0 +1,33 @@
+<% if @product.image %>
+  <span class='img-wrapper'>
+    <%= image_tag(@product.image.url(:medium), :class=>'product-image') %>
+  </span>
+<% end %>
+<p>
+  <b>Name:</b>
+  <%= @product.name %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%= @product.price %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @product.description %>
+</p>
+
+<p>
+  <b>Vendor user:</b>
+  <%= @product.vendor_user_id %>
+</p>
+
+<p>
+  <b>Sell:</b>
+  <%= @product.sell %>
+</p>
+
+<%= button_to 'Add to cart', cart_path(:product_id => @product.id) %>
+
+<%= link_to 'Back to catalog', catalogs_path %>

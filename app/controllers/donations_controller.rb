@@ -1,4 +1,5 @@
 class DonationsController < ApplicationController
+  skip_before_filter :authenticate, :only => [:new, :show]
   def required_user_role
     'vendor'
   end 

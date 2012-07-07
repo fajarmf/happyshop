@@ -7,7 +7,7 @@ class CartsController < ApplicationController
     @product = Product.find(params[:product_id])
     session[:cart] ||= []
     session[:cart] << @product.id
-    redirect_to product_path(@product), :notice => "#{@product.name} berhasil ditambahkan ke keranjang belanja"
+    redirect_to catalog_path(@product), :notice => "#{@product.name} berhasil ditambahkan ke keranjang belanja"
   end
   def destroy
     session[:cart] -= [params[:product_id]]
