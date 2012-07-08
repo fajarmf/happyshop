@@ -15,10 +15,32 @@
 //= require_tree .
 //
 
-  $(function() {
-    $( ".datepicker" ).datepicker($.datepicker.regional['id']);
+$(function() {
+	$( ".datepicker" ).datepicker($.datepicker.regional['id']);
+	$(".view-footer .title").click(function(){
+		var cart = $('.cart-contents');
+		if (cart.hasClass('collapsed')) {
+			cart.removeClass('collapsed').animate({bottom:0});
+			return false;
+		}
+	});
+	$('html').click(function() {
+		var cart = $('.cart-contents');
+		if (!cart.hasClass('collapsed')) {
+			cart.addClass('collapsed').animate({bottom:-176});
+			return false;
+		}
+	});
+	$(".hide-cart").click(function(){
+		var cart = $('.cart-contents');
+		if (!cart.hasClass('collapsed')) {
+			cart.addClass('collapsed').animate({bottom:-176});
+			return false;
+		}
+	});
+});
 
-  });
+
 
   // Gender selection (top level)
   genderNav = function(hash) {

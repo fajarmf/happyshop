@@ -28,5 +28,6 @@
 
       <%= render 'layouts/footer2' %>
     </div>
+    <%= render :partial => 'layouts/shoppingcart' if session[:cart] %>
   </body>
 </html>

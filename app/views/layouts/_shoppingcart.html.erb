@@ -1,0 +1,66 @@
+<footer id="footer" class="clearfix" role="contentinfo">  <div class="region region-footer">
+      <section id="block-undeez-ui-under-cart" class="block block-undeez-ui block-odd">
+      <div>
+        <% total = 0 %>
+        <div class="cart-contents clearfix  collapsed" style="bottom: -176px; ">
+          <div class="view view-commerce-cart-block-undeez view-id-commerce_cart_block_undeez view-display-id-default view-dom-id-1 less-then-6">
+            <div class="view-content">
+              <div class="commerce-line-item-views-form">
+                <form action="/system/ajax" method="post" id="default" accept-charset="UTF-8">
+                  <div>
+                    <input type="hidden" name="form_build_id" value="M">
+                    <input type="hidden" name="form_id" value="t">
+                    <% session[:cart].each do |p| %>
+                      <% total += p[:price].to_f %>
+                      <%= render 'carts/single', :product => p %>
+                    <% end %>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="view-footer">
+              <div class="qty"><%= session[:cart].size %></div>
+              <div class="title ">Tas belanja</div>
+              <div class="mobile-column">
+                <div class="subtotal">Dalam tas: 
+                  <div class="price">
+                    <span class="dollars">Rp. <%= total %></span>
+                  </div>
+                </div>
+              </div>
+              <div class="mobile-column right">
+                <div class="total">
+                  <span class="total-label">Subtotal: </span>
+                  <div class="price">
+                    <span class="dollars">Rp. <%= total%></span>
+                  </div>
+                </div>
+        <div class="checkout">
+          <ul class="links inline">
+            <li class="checkout first last">
+            <a href="/checkout" rel="nofollow">Checkout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="info">
+    <div class="geotrust">
+      <!-- GeoTrust QuickSSL [tm] Smart Icon tag. -->                                       
+      <!-- end GeoTrust Smart Icon tag --> 
+    </div>
+    <div id="boxes-box-cart_box" class="boxes-box">
+      <div class="boxes-box-content">
+        <label>We can help: </label>
+        email <a class="email" href="mailto:contact@pasaramal.com">contact@pasaramal.com</a> with any question.
+        <a class="popitup" href="faq-page">FAQ</a>
+        <a class="popitup" href="return-policy">Return Policy</a>
+        <a class="popitup" href="terms">Terms of Use</a>
+      </div>
+    </div>  
+  </div>
+  <div class="hide-cart ir ">X</div>
+</div>
+</section>
+</footer>

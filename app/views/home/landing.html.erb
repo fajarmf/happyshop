@@ -74,6 +74,7 @@
       <%= render 'layouts/footer' %>
       </section>
     </div>
+    <%= render :partial => 'layouts/shoppingcart' if session[:cart] %>
 
     <script>
       $('#views_slideshow_cycle_teaser_section_gallery-block').cycle({

@@ -6,7 +6,12 @@ class CartsController < ApplicationController
   def create
     @product = Product.find(params[:product_id])
     session[:cart] ||= []
-    session[:cart] << @product.id
+    session[:cart] << {
+      id: @product.id, 
+      name: @product.name, 
+      image_url: @product.image.url(:medium),
+      price: @product.price,
+    }
     redirect_to catalog_path(@product), :notice => "#{@product.name} berhasil ditambahkan ke keranjang belanja"
   end
   def destroy
