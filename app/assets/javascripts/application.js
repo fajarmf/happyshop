@@ -24,14 +24,14 @@ $(function() {
 			return false;
 		}
 	});
-	$('html').click(function() {
+/*	$('html').click(function() {
 		var cart = $('.cart-contents');
 		if (!cart.hasClass('collapsed')) {
 			cart.addClass('collapsed').animate({bottom:-176});
 			return false;
 		}
 	});
-	$(".hide-cart").click(function(){
+*/	$(".hide-cart").click(function(){
 		var cart = $('.cart-contents');
 		if (!cart.hasClass('collapsed')) {
 			cart.addClass('collapsed').animate({bottom:-176});
