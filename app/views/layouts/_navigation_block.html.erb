@@ -1,11 +1,24 @@
-<nav id="block-menu-block-undeez-ui-2" class="block block-menu-block block-odd">
-<div class="menu-block-wrapper menu-block-undeez_ui-2 menu-name-main-menu parent-mlid-0 menu-level-1">
-  <ul class="menu clearfix">
-    <li class="first leaf active"><%= link_to "Beranda", root_path, :class=>'active' %></li>
-    <li class="leaf"><a href="/profile">Your<br>Account</a></li>
-    <li class="leaf"><a href="/partners">Partners</a></li>
-    <li class="leaf"><a href="/dropboxes" title="">Dropbox<br>Events</a></li>
-    <li class="last leaf"><a href="/how" title="">How</a></li>
-  </ul>
-</div>
-</nav>
+<header class="container" id="header">
+	<div class="row">
+		<h2 class="four columns">Pasar Amal</h2>
+		<nav class="eight columns">
+		  <ul class="nav-bar">
+		  	<li>
+		  		<%= link_to "Beranda", root_path, :class=>'active' %>
+		  	</li>
+		  	<li>
+		  		<a href="/profile">Account</a>
+		  	</li>
+		  	<li>
+		  		<a href="/partners">Partner</a>
+		  	</li>
+		  	<li>
+		  		<a href="/dropboxes" title="">Events</a>
+		  	</li>
+		  	<li>
+		  		<a href="/how" title="">How</a>
+		  	</li>
+		  </ul>
+		</nav>
+	</div>
+</header>

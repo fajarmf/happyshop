@@ -18,9 +18,10 @@ ActiveRecord::Schema.define(:version => 20120628090611) do
     t.date     "pickup_date"
     t.text     "description"
     t.integer  "percentage"
+    t.integer  "status",             :default => 0
     t.text     "address"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
@@ -63,10 +64,9 @@ ActiveRecord::Schema.define(:version => 20120628090611) do
     t.integer  "type"
     t.float    "amount"
     t.integer  "buyer_user_id"
-    t.integer  "seller_user_id"
     t.integer  "product_id"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "users", :force => true do |t|

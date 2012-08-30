@@ -15,68 +15,46 @@
 //= require_tree .
 //
 
-$(function() {
-	$( ".datepicker" ).datepicker($.datepicker.regional['id']);
-	$(".view-footer .title").click(function(){
-		var cart = $('.cart-contents');
-		if (cart.hasClass('collapsed')) {
-			cart.removeClass('collapsed').animate({bottom:0});
-			return false;
-		}
-	});
-/*	$('html').click(function() {
-		var cart = $('.cart-contents');
-		if (!cart.hasClass('collapsed')) {
-			cart.addClass('collapsed').animate({bottom:-176});
-			return false;
-		}
-	});
-*/	$(".hide-cart").click(function(){
-		var cart = $('.cart-contents');
-		if (!cart.hasClass('collapsed')) {
-			cart.addClass('collapsed').animate({bottom:-176});
-			return false;
-		}
-	});
+jQuery(document).ready(function ($) {
+
+  /* Use this js doc for all application specific JS */
+
+  /* TABS --------------------------------- */
+  /* Remove if you don't need :) */
+
+  function activateTab($tab) {
+    var $activeTab = $tab.closest('dl').find('dd.active'),
+        contentLocation = $tab.children('a').attr("href") + 'Tab';
+
+    // Strip off the current url that IE adds
+    contentLocation = contentLocation.replace(/^.+#/, '#');
+
+    //Make Tab Active
+    $activeTab.removeClass('active');
+    $tab.addClass('active');
+
+    //Show Tab Content
+    $(contentLocation).closest('.tabs-content').children('li').removeClass('active').hide();
+    $(contentLocation).css('display', 'block').addClass('active');
+  }
+
+  /* PLACEHOLDER FOR FORMS ------------- */
+  /* Remove this and jquery.placeholder.min.js if you don't need :) */
+  $('input, textarea').placeholder();
+
+  /* TOOLTIPS ------------ */
+  $(this).tooltips();
+
+  /* CUSTOM FORMS */
+  $.foundation.customForms.appendCustomMarkup();
+
 });
 
-
-
-  // Gender selection (top level)
-  genderNav = function(hash) {
-
-    if (!hash[0]) {
-      $(".catalog-navigation li.gender").removeClass("active collapse").animate({width: '355px'}, 300).find(".img-holder").fadeIn(200);
-      return false;
-    }
-
-    if (hash[0] == '#cart') {
-      $(window).load(function () {
-        $("html,body").animate({ scrollTop: $(document).height() }, 300);
-      });
-    }
-
-    var gender = $('li.gender[hash="' + hash[0] + '"]');
-    var sibl = gender.siblings(".gender");
-
-    if (gender.is(".active")) {
-        $(".catalog-nav ul.products li").removeClass("active");
-        return false;
-    }
-
-    if (gender.is(".collapse")) {
-      $(".catalog-nav ul.products").fadeOut(100);
-      $("ul.catalog-navigation li.gender li.category").removeClass("active");
-    }
-
-    gender.animate({width: '708px'}, 300).find(".img-holder").fadeOut(200);
-    sibl.animate({width: '0'}, 300).delay(200).find(".img-holder").fadeOut(200);
-
-    gender.addClass("active").removeClass("collapse");
-    sibl.addClass("collapse").removeClass("active");
-
-    sibl.find(".products").hide('fast', function () {
-        gender.find(".products").fadeIn("slow");
-    });
-  };
-
+$(window).load(function() {
+  $('#featuredContent').orbit({
+    fluid: '12x3',
+    timer: false,
+    bullets: true,
+    directionalNav: false
+  });
+});

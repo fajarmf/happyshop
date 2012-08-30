@@ -8,7 +8,172 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
+ *= require foundation
  *= require_self
- *= require_tree .
+ * require_tree .
 */
 
+header.container {
+    background-color: #000;
+    color: #fff;
+    height: 50px
+}
+
+header.container nav {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+header.container .nav-bar {
+    float: right;
+    margin-top: -1px;
+    height: 50px;
+    background-color: #000
+}
+
+header.container .nav-bar > li {
+    line-height: 49px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+header.container .nav-bar > li > a {
+    font-size: 0.93em;
+    font-weight: bold;
+}
+
+header.container .nav-bar > li:hover {
+    background: #000;
+}
+
+header.container .nav-bar > li > a:hover {
+    color: #1d8cc5;
+}
+
+header.container h2 {
+    font-size: 1.3em;
+    position: relative;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+header.container h2:before {
+    height: 50px;
+    width: 114px;
+    content: url(../logo.png);
+    position: absolute;
+    top: 0;
+}
+
+#featuredContent {
+    background: #248abf;
+}
+
+#featuredContent div {
+    background: #248abf;
+    padding: 30px 0;
+    color: #fff
+}
+
+ul.orbit-bullets {
+    bottom: -40px
+}
+
+#featured {
+    background: #248abf;
+}
+
+#main .banners {
+    padding: 30px 0;
+}
+
+#main .banners h2 {
+    font-weight: normal;
+    color: #333;
+}
+
+#main .banners .four {
+    text-align: center;
+    padding-bottom: 40px;
+}
+
+#main .banners .four p {
+    padding: 0 20px;
+    font-size: 13px;
+    font-size: 1.3rem;
+}
+
+#main .banners h3 {
+    color: #999;
+    font-weight: normal;
+    font-size: 20px;
+    font-size: 2rem;
+    margin-top: -10px;
+}
+
+#footer {
+    border-top: 1px solid #f4f4f4;
+    padding-top: 20px;
+    color: #999;
+    clear: both;
+    margin-top: 20px;
+}
+
+#footer p {
+    font-size: 12px;
+    font-size: 1.2rem
+}
+
+#footer .social {
+    float: right;
+    text-align: right;
+    font-size: 12px;
+    font-size: 1.2rem;
+}
+
+.page aside.four{
+  background: #f4f4f4;
+  border-radius: 3px;
+  margin-right: 15px;
+}
+.page aside p{
+  font-style: normal;
+}
+.page #main h1{
+  font-size: 28px;
+  font-size: 2.8rem;
+  font-weight: normal;
+  border-bottom: 1px solid #f4f4f4;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+.catalogue-page #main h1{
+  margin-left: 5px;
+}
+
+.catalogue {
+  margin-left: -6px;
+}
+.catalogue .columns{
+  padding: 0;
+  margin: 6px;
+  border: 1px solid #ccc;
+  width: 230px;
+  border-radius: 3px;
+  height: 220px;
+  position: relative;
+}
+.catalogue .columns h3{
+  position: absolute;
+  bottom: 20px;
+  left: -3px;
+  font-size: 13px;
+  font-size: 1.3rem;
+  padding: 10px;
+  background: rgba(0,0,0,0.8);
+  width: 200px;
+  margin: 0;
+}
+.catalogue .columns h3 a{
+  color: #fff
+}
