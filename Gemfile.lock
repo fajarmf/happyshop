@@ -28,14 +28,16 @@ GEM
     activesupport (3.2.8)
       i18n (~> 0.6)
       multi_json (~> 1.0)
-    arel (3.0.2)
+    arel (3.0.3)
     aws-sdk (1.3.9)
       httparty (~> 0.7)
       json (~> 1.4)
       nokogiri (>= 1.4.4)
       uuidtools (~> 2.1)
-    builder (3.0.0)
-    cocaine (0.2.1)
+    builder (3.0.4)
+    climate_control (0.2.0)
+    cocaine (0.5.8)
+      climate_control (>= 0.0.3, < 1.0)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -43,6 +45,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.3.3)
+    concurrent-ruby (1.1.5)
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
@@ -50,7 +53,8 @@ GEM
     httparty (0.8.3)
       multi_json (~> 1.0)
       multi_xml
-    i18n (0.6.0)
+    i18n (0.9.5)
+      concurrent-ruby (~> 1.0)
     journey (1.0.4)
     jquery-rails (2.1.1)
       railties (>= 3.1.0, < 5.0)
@@ -60,17 +64,20 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    mime-types (1.19)
-    multi_json (1.3.6)
+    mime-types (1.25.1)
+    mimemagic (0.3.0)
+    multi_json (1.14.1)
     multi_xml (0.5.1)
+    mysql2 (0.3.11)
     mysql2 (0.3.11-x86-mingw32)
+    nokogiri (1.5.5)
     nokogiri (1.5.5-x86-mingw32)
-    paperclip (3.1.4)
-      activemodel (>= 3.0.0)
-      activerecord (>= 3.0.0)
-      activesupport (>= 3.0.0)
-      cocaine (>= 0.0.2)
+    paperclip (4.3.7)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      cocaine (~> 0.5.5)
       mime-types
+      mimemagic (= 0.3.0)
     polyglot (0.3.3)
     rack (1.4.1)
     rack-cache (1.2)
@@ -111,13 +118,14 @@ GEM
     treetop (1.4.10)
       polyglot
       polyglot (>= 0.3.1)
-    tzinfo (0.3.33)
+    tzinfo (0.3.55)
     uglifier (1.2.7)
       execjs (>= 0.3.0)
       multi_json (~> 1.3)
     uuidtools (2.1.3)
 
 PLATFORMS
+  ruby
   x86-mingw32
 
 DEPENDENCIES
